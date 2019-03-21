@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet'>
+    <link rel='stylesheet' type='text/css' href='assets/css/style.css'>
+    <title>Visualizing Image Fields</title>
+    <meta name='author' content='Douglas Duhaime'>
+  </head>
+  <body>
+    <header class='header'>
+      <img class='logo' src='assets/images/dhlab-logo.svg' alt='DHLab logo' />
+      <div class='app-name'>Gesture Atlas</div>
+      <div class='tagline'>Bibliotheca Hertziana Digital Humanities Lab</div>
+    </header>
+    <div class='loader-scene'>
+      <p class='welcome'>Bibliotheca Hertziana Digital Atlas of Gesture. Leonardo Impett 2019. Powered by
+          <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose"> OpenPose </a> (CMU Perceptual Computing Lab) and
+          <a href="https://github.com/YaleDHLab/pix-plot"> Pix-Plot </a> (Yale DH Lab)</p>
+      <div class='loader-container'>
+        <div class='loader-icon'>
+          <div class='blocks'>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+            <div class='block'></div>
+          </div>
+        </div>
+        <div id='progress'>0%</div>
+      </div>
+      <button id='enter'>Enter</button>
+    </div>
+    <nav>
+      <div class='nav-inner'>
+        <h2>Clusters</h2>
+        <div id='hotspots'></div>
+        <script type='text/html' id='template'>
+          <% _.forEach(hotspots, function(hotspot) { %>
+            <div class='hotspot'>
+              <div class='background-image'
+                style='background-image: url("output/thumbs/128px/<%= hotspot.img %>")'></div>
+              <div><%= hotspot.label %></div>
+            </div>
+          <% }); %>
+        </script>
+      </div>
+    </nav>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js'></script>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+    <script type='text/javascript' src='assets/js/object-assign-polyfill.js'></script>
+    <script type='text/javascript' src='assets/js/tween.js'></script>
+    <script type='text/javascript' src='assets/js/trackball-controls.js'></script>
+    <script type='text/javascript' src='assets/js/texture-loader.js'></script>
+    <script type='text/javascript' src='assets/js/tsne-webgl.js'></script>
+    <script type='text/javascript' src='assets/js/ga.js'></script>
+  </body>
+</html>
